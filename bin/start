@@ -33,8 +33,9 @@ cd $MANAGE_PATH
 
 nginx -c /etc/nginx/nginx.conf &
 
-if [[ $MODULUS_CONFIG_START ]]; then
-  $MODULUS_CONFIG_START
+if [[ $MODULUS_CONFIG_SCRIPTS_START ]]; then
+  $MODULUS_CONFIG_SCRIPTS_START &
 else
-  gunicorn -b unix:/mnt/tmp/app.sock wsgi
+  gunicorn -b unix:/mnt/home/app.sock wsgi &
 fi
+wait

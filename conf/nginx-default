@@ -1,5 +1,5 @@
 upstream app_server {
-  server unix:/mnt/tmp/app.sock fail_timeout=0;
+  server unix:/mnt/home/app.sock fail_timeout=0;
 }
 
 server {
