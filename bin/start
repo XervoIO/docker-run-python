@@ -1,7 +1,5 @@
-#!/bin/bash
-
+#!/usr/bin/env bash
 set -eo pipefail
-set -x
 
 APP_DIR=/mnt/app
 
@@ -32,6 +30,11 @@ MANAGE_PATH=$(dirname $MANAGE_FILE)
 cd $MANAGE_PATH
 
 ./manage.py migrate
+
 nginx -c /etc/nginx/nginx.conf &
-# TODO support custom start
-gunicorn -b unix:/mnt/tmp/app.sock wsgi
+
+if [[ $MODULUS_CONFIG_START ]]; then
+  $MODULUS_CONFIG_START
+else
+  gunicorn -b unix:/mnt/tmp/app.sock wsgi
+fi
