@@ -1,4 +1,4 @@
-FROM onmodulus/docker-run-base
+FROM onmodulus/run-base
 
 ENV \
   PYENV_ROOT=/mnt/home/pyenv \

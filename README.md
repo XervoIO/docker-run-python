@@ -36,8 +36,8 @@ The only requirement for a basic running container is to put the Python source
 code in the app folder. Then mount this directory to /mnt inside the container.
 
 ``` text
-$ docker pull onmodulus/docker-run-python:latest
-$ docker run -v /host-folder:/mnt -p 80:8080 onmodulus/docker-run-python:latest start
+$ docker pull onmodulus/run-python
+$ docker run -v /host-folder:/mnt -p 80:8080 onmodulus/run-python start
 ```
 
 All Modulus run images have a binary available in the PATH named "start" that
@@ -69,7 +69,7 @@ stdout_logfile=/mnt/log/app.log
 Save this to /host-folder/supervisor.conf and run the container.
 
 ``` text
-$ docker run -v /host-folder:/mnt -p 80:8080 onmodulus/docker-run-python:latest
+$ docker run -v /host-folder:/mnt -p 80:8080 onmodulus/run-python
 ```
 
 # License
